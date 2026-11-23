@@ -1,0 +1,21 @@
+{
+  "name": "gonogo-release-confidence",
+  "version": "1.0.0",
+  "description": "GoNoGo: release confidence for Jira. A Forge app with a Rovo agent, a Rovo skill and an MCP server that tell teams whether a release is ready to ship.",
+  "main": "src/index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "lint": "forge lint",
+    "validate": "node scripts/validate-offline.cjs"
+  },
+  "dependencies": {
+    "@forge/api": "^8.5.0",
+    "@forge/bridge": "^7.3.0",
+    "@forge/kvs": "^2.1.2",
+    "@forge/react": "^12.5.0",
+    "@forge/resolver": "^2.0.2",
+    "react": "^18.3.1"
+  }
+}
