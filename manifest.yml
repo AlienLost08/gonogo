@@ -19,8 +19,9 @@ modules:
     - key: gonogo-release-captain
       name: GoNoGo Release Captain
       description: >
-        Tells you whether a Jira release is ready to ship, explains every risk with
-        evidence from your issues, and posts a go/no-go report your team can act on.
+        Tells you whether a Jira release is ready to ship, explains every risk
+        with evidence from your issues, and posts a go/no-go report your team
+        can act on.
       prompt: resource:agent-prompts;agent-prompt.txt
       conversationStarters:
         - Is our next release ready to ship?
@@ -59,27 +60,31 @@ modules:
       function: action-readiness
       actionVerb: GET
       description: >
-        Scores how ready a Jira release (fix version) is to ship, from 0 to 100, with a
-        GO / CAUTION / NO-GO verdict, the checks that failed, and the issues behind each
-        finding. Use when someone asks if a release, version or sprint is ready to ship.
+        Scores how ready a Jira release (fix version) is to ship, from 0 to 100,
+        with a GO / CAUTION / NO-GO verdict, the checks that failed, and the
+        issues behind each finding. Use when someone asks if a release, version
+        or sprint is ready to ship.
       inputs:
         projectKey:
           title: Project key
           type: string
           required: false
-          description: The Jira project key, for example SHOP. Defaults to the current project.
+          description: The Jira project key, for example SHOP. Defaults to the current
+            project.
         versionName:
           title: Version name
           type: string
           required: false
-          description: The fix version name, for example 2.4.0. Defaults to the next unreleased version.
+          description: The fix version name, for example 2.4.0. Defaults to the next
+            unreleased version.
     - key: list-release-blockers
       name: List release blockers
       function: action-blockers
       actionVerb: GET
       description: >
-        Lists only the issues that block a Jira release from shipping (open high-priority
-        work, issues blocked by unfinished links, reopened work), most severe first.
+        Lists only the issues that block a Jira release from shipping (open
+        high-priority work, issues blocked by unfinished links, reopened work),
+        most severe first.
       inputs:
         projectKey:
           title: Project key
@@ -96,22 +101,24 @@ modules:
       function: action-issue-risk
       actionVerb: GET
       description: >
-        Explains how risky a single Jira issue is for its release: priority, blockers,
-        staleness, reopen churn, missing acceptance criteria and ownership.
+        Explains how risky a single Jira issue is for its release: priority,
+        blockers, staleness, reopen churn, missing acceptance criteria and
+        ownership.
       inputs:
         issueKey:
           title: Issue key
           type: string
           required: false
-          description: The Jira issue key, for example SHOP-42. Defaults to the current issue.
+          description: The Jira issue key, for example SHOP-42. Defaults to the current
+            issue.
     - key: post-go-no-go-report
       name: Post go/no-go report
       function: action-post-report
       actionVerb: CREATE
       description: >
-        Posts the release readiness report as a comment on a Jira issue (for example the
-        release ticket) so the team has a written go/no-go record. Only use when the user
-        explicitly asks to post or share the report.
+        Posts the release readiness report as a comment on a Jira issue (for
+        example the release ticket) so the team has a written go/no-go record.
+        Only use when the user explicitly asks to post or share the report.
       inputs:
         issueKey:
           title: Issue key
@@ -127,7 +134,8 @@ modules:
           title: Version name
           type: string
           required: false
-          description: The fix version to report on. Defaults to the next unreleased version.
+          description: The fix version to report on. Defaults to the next unreleased
+            version.
 
   function:
     - key: ui-resolver
@@ -160,4 +168,4 @@ app:
     name: nodejs24.x
     memoryMB: 256
     architecture: arm64
-  id: ari:cloud:ecosystem::app/00000000-0000-0000-0000-000000000000
+  id: ari:cloud:ecosystem::app/1735eac5-97d3-4149-93cf-d1885474508f
